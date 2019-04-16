@@ -1,28 +1,32 @@
 
-* {margin: 0px;}
+// pokud je pouzity preprocessor, je uzitecny drzet jeden formalni styl kodu (coding style)
+// ten se potom muze hlidat pomoci tzv. linteru, nejznamejsi za styly Stylelint
 
-main, nav {display: block;}
+* {margin: 0px;} // 0 lze psat bez jednotky
+
+main, nav {display: block;} // doporucuji psat kazdy selektor na svuj radek pro prehlednost (coding style)
+// potreba jen pro IE (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main)
 
 
 main {
 width: 80%;
-height: 400px;
+height: 400px; // pevna vyska casto neni dobry napad. Co se stane, pokud kratkozraky uzivatel nastavi sve fonty na 200% velikost? Vejde se obsah?
 background-color: #000bff7d;
 margin-right: auto;
 margin-left: auto;
 padding: 10px;
-margin-top: 60px;
+margin-top: 60px; // vsechny marginy muzeme sloucit do `margin: 60px auto 0;` shorthand zapisu
 border-radius: 25px;
 }
 
-main h2{
-  font-family: Calligraffitti;
+main h2{ // mezera pred ‘{‘ (coding style)
+  font-family: Calligraffitti; // chybi fall-back fonts, napr. `font-family: Calligraffitti, serif;`
   text-align: center;
-  /*background-color: yellow;*/
+  /*background-color: yellow;*/  // oddelit komentar mezerami (coding style)
   margin-bottom: 0px;
   margin-top: 30px;
   color:#000;
-  font-size: 1.4em;
+  font-size: 1.4em; // pro prehlednost bych pouzila rem. (https://zellwk.com/blog/rem-vs-em/)
   font-weight: 900;
   color: #fff;
 }
@@ -30,7 +34,9 @@ main h2{
 
 
 
-main p {
+main p { // tady mezera je. vybrat jeden styl a sjednotit.
+  // spousta stylu se opakuje - doporucuji nastavit typografii pro vsechny dotcene prvky (pismo a zakladni tloustku, barvu
+  // lze nastavit primo na body, potom muzu nastavit `p, h2 { font-weight: 900; margin: 0}`
   font-family: Calligraffitti;
   text-align: center;
   /*background-color: yellow;*/
@@ -53,17 +59,17 @@ margin-top: 0px;
 nav {
 
   width: 100%;
-  background-color: #dddddd;
+  background-color: #dddddd; // muzete zkratit na `#ddd`
   position: fixed;
   top: 0;
-  min-width: 369px;
+  min-width: 369px; // zajimave cislo. co to udela na mobilu?
 }
 
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: hidden; // pro tento use case asi dobre, obecne ale neni dobra praxe schovavat obsah.
 }
 
 nav li {
@@ -87,8 +93,8 @@ a:hover {
    color: #fff;
 }
 
-form, input {margin:20px auto; text-align: center;}
+form, input {margin:20px auto; text-align: center;} //vyborne, shorthand pro margin!
 
 tr:nth-child(even) {
-    background-color: #B2E0B2;
+    background-color: #B2E0B2; // prakticke je sjednotit, jestli hex budete psat malymi nebo velkymi pismeny. konzistence = prehlednost
 }
